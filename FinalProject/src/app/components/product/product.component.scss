@@ -1,0 +1,19 @@
+.product_title h2{
+    color: rgb(54, 54, 54);
+}
+
+.product_btn{
+    margin-top: 30px;
+
+    button{
+        width: 25px;
+        height: 25px;
+        background-color: white;
+        border: none;
+    }
+
+    button:hover{
+        background-color: grey;
+        color: white;
+    }
+}

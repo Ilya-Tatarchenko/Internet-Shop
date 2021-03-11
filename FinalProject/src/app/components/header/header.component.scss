@@ -1,0 +1,30 @@
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header{
+    background-color: rgb(59, 59, 59);
+    padding: 40px;
+
+    .header-content{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .header-forms{
+            display: flex;
+            align-items: center;
+
+            h2{
+                color: #fff;
+                margin-right: 50px;
+
+                a{
+                    color: white;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
