@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { IProduct } from 'src/app/interfaces/product';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-product-by-id-info',
@@ -12,7 +14,7 @@ export class ProductByIdInfoComponent implements OnInit {
   id: string;
   product: any;
 
-  constructor(private activateRoute: ActivatedRoute, public http: HttpClient) { }
+  constructor(private activateRoute: ActivatedRoute, public http: HttpClient, public productService: ProductsService) { }
 
   ngOnInit(): void {
     this.id = this.activateRoute.snapshot.params['id'];
@@ -20,6 +22,10 @@ export class ProductByIdInfoComponent implements OnInit {
     this.http.get(`https://nodejs-final-mysql.herokuapp.com/products/${this.id}`).subscribe(res => {
       this.product = res;
     });
+  }
+
+  buyProduct(product: IProduct){
+    this.productService.buy(product);
   }
 
 }

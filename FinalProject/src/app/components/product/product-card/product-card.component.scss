@@ -18,13 +18,32 @@
         padding: 20px;
     
         .product_item_img{
-            width: 100%;
             height: 150px;
-            background-color: peru;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            //background-color: peru;
+
+            img{
+                width: 90%;
+            }
         }
     
         .product_item_info{
-            margin-top: 30px;
+            margin-top: 50px;
+
+            h5{
+                font-size: 18px;
+            }
+
+            p{
+                font-weight: 600;
+                font-size: 22px;
+            }
         }
+    }
+
+    .product_item:hover{
+        cursor: pointer;
     }
 }

@@ -14,6 +14,7 @@ export class ProductCardComponent implements OnInit {
   //users: any[] = [];
 
   items: any[] = [];
+  id: string;
   
   constructor(public productService: ProductsService, public http: HttpClient, public router: Router) {
 

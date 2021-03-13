@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductsService } from 'src/app/services/products.service';
+
 
 @Component({
   selector: 'app-nav-menu',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavMenuComponent implements OnInit {
 
-  constructor() { }
+  count: number = 0;
+  value: number;
+
+  constructor(public productService: ProductsService) { }
 
   ngOnInit(): void {
+    this.productService.basketSubject.subscribe(product =>{
+      if(product)
+      {
+        this.count++;
+      }
+    })
   }
 
 }

@@ -1,12 +1,14 @@
 <div class="product_content">
 
     <div class="product_item" *ngFor='let item of items' (click)='goToProd(item._id)'>
-        <div class="product_item_img"></div>
+        <div class="product_item_img">
+            <img src="https://nodejs-final-mysql.herokuapp.com{{item.image}}" alt="">
+        </div>
     
         <div class="product_item_info">
             <h5>{{item.name}}</h5>
-            <p>{{item._id}}</p>
-            <p>{{item.rating}}</p>
+            <p>{{item.review}}</p>
+            <p>{{item.price}} $</p>
         </div>
     </div>
 
