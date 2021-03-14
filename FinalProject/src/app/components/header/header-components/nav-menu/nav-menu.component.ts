@@ -10,15 +10,14 @@ import { ProductsService } from 'src/app/services/products.service';
 export class NavMenuComponent implements OnInit {
 
   count: number = 0;
-  value: number;
+  cCount: any;
 
   constructor(public productService: ProductsService) { }
 
   ngOnInit(): void {
-    this.productService.basketSubject.subscribe(product =>{
-      if(product)
-      {
-        this.count++;
+    this.productService.basketSubject.subscribe(change =>{
+      if(change && change.count) {
+        this.cCount = change.count;
       }
     })
   }

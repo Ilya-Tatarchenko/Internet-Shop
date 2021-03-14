@@ -2,7 +2,7 @@
 
     <div class="product_item" *ngFor='let item of items' (click)='goToProd(item._id)'>
         <div class="product_item_img">
-            <img src="https://nodejs-final-mysql.herokuapp.com{{item.image}}" alt="">
+            <img src="https://nodejs-final-mysql.herokuapp.com{{item.image}}" alt="" *ngIf='item'>
         </div>
     
         <div class="product_item_info">

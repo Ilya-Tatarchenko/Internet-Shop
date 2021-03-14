@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ProductsService } from 'src/app/services/products.service';
 
 
 @Component({
@@ -11,13 +10,17 @@ import { Router } from '@angular/router';
 
 export class ProductComponent implements OnInit {
 
+  value: number;
   
-  constructor() {
-
-  }
+  constructor(public productService: ProductsService) {}
 
   ngOnInit(): void {
+    
+  }
 
+  pageNumber(value){
+    // this.pageNumber = value;
+    this.productService.goToPage(value);
   }
 
 }
