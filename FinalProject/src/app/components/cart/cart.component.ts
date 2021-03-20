@@ -9,6 +9,7 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class CartComponent implements OnInit {
 
+  
   productsInCard: any[] = [];
 
   constructor(public productService: ProductsService, public localStorageService: LocalStorageService) { }

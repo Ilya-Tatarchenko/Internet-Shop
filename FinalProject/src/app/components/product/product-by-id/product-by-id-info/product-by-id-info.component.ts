@@ -14,6 +14,9 @@ export class ProductByIdInfoComponent implements OnInit {
   id: string;
   product: any;
 
+  countByProduct = 0;
+  counts = Array;
+
   constructor(private activateRoute: ActivatedRoute, public http: HttpClient, public productService: ProductsService) { }
 
   ngOnInit(): void {

@@ -1,0 +1,23 @@
+
+
+<div class="container">
+
+  <owl-carousel-o [options]="customOptions">
+
+    <ng-container *ngFor="let slide of slidesStore">
+      <ng-template carouselSlide [id]="slide.id" style="display: flex; 
+             justify-content: center;
+             background-color: rgb(82, 82, 82);">
+
+        <h2 [name]="slide.name"></h2>
+        <img [src]="slide.src" [alt]="slide.alt" [title]="slide.title" class="slide_img" style="width: 20%; border-radius: 20%;">
+
+      </ng-template>
+    </ng-container>
+
+</owl-carousel-o>
+
+</div>
+
+
+

@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { OwlModule } from 'ngx-owl-carousel'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CarouselModule} from 'ngx-owl-carousel-o'
+import { CarouselCompComponent} from './components/carousel-comp/carousel-comp.component'
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -19,6 +22,9 @@ import { ProductCardComponent } from './components/product/product-card/product-
 import { MainComponent } from './components/main/main.component';
 import { ProductByIdComponent } from './components/product/product-by-id/product-by-id.component';
 import { ProductByIdInfoComponent } from './components/product/product-by-id/product-by-id-info/product-by-id-info.component';
+import { RouterModule } from '@angular/router';
+import { from } from 'rxjs';
+import { CartItemComponent } from './components/cart/cart-item/cart-item.component';
 
 @NgModule({
   declarations: [
@@ -36,13 +42,18 @@ import { ProductByIdInfoComponent } from './components/product/product-by-id/pro
     ProductCardComponent,
     MainComponent,
     ProductByIdComponent,
-    ProductByIdInfoComponent
+    ProductByIdInfoComponent,
+    CarouselCompComponent,
+    CartItemComponent
   ],
   imports: [
     BrowserModule,
     OwlModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule,
+    BrowserAnimationsModule,
+    CarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

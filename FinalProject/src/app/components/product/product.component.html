@@ -6,7 +6,9 @@
 
     <div class="product_body">
 
-        <app-product-card></app-product-card>
+        <div class="product_card" *ngFor='let item of products'>
+            <app-product-card [item]='item'></app-product-card>
+        </div>
 
     </div>
 

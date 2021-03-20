@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { IProduct, IGetProductResponse } from '../interfaces/product';
+import { IProduct, IGetProductResponse, IGetProductAndCount } from '../interfaces/product';
 import { LocalStorageService } from './local-storage.service';
 
 
@@ -21,26 +21,28 @@ count = parseInt(localStorage.getItem('count'), 10) || 0;
 cCount: any;
 
 productsInCard: any[] = [];
-
-
+countByProduct: number;
+productAndCount: IGetProductAndCount[];
 
 basketSubject = new Subject<any>();
+productBasketSubject = new Subject<IProduct>();
 
 constructor(private http: HttpClient, public localStorageService: LocalStorageService) {
 
 }
 
-goToPage(value){
-  this.pageNumber = value;
-  console.log(this.pageNumber);
 
-  return this.pageNumber;
+//Переходы по страницам
+goToPage(value) {
+  this.pageNumber = value;  
+  return this.getProductItem();
 }
 
 getProductItem(): Observable<IGetProductResponse> {
   return this.http.get<IGetProductResponse>(`https://nodejs-final-mysql.herokuapp.com/products?keyword=&pageNumber=${this.pageNumber}`);
 }
 
+//Добавление продуктов в корзину
 buy(product: IProduct){
 
   if(product)
@@ -51,12 +53,19 @@ buy(product: IProduct){
     this.cCount = localStorage.getItem('count');
   }
 
-  let ps = JSON.parse(localStorage.getItem('product'));
-  //ps.push(this.productsInCard);
-  localStorage.setItem('product', ps);
-
-  this.basketSubject.next({product, count: this.count});
+  this.basketSubject.next({ product, count: this.count });
+  this.productBasketSubject.next(product);
+  this.productAndCount = JSON.parse(localStorage.getItem('products'));
+  
+  // countByProduct
+  this.productAndCount.push({ products: product, count: 25 });
+  localStorage.setItem('products', JSON.stringify(this.productAndCount));
+  
 }
+
+// buyProductAndCount(product: IProduct){
+  
+// }
 
 
 }

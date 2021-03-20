@@ -13,26 +13,22 @@
         h2{
             color: white;
             margin-top: 30px;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             font-size: 24px;
         }
 
-        #one{
-            width: 200px;
-            height: 200px;
-            background-color: green;
-        }
+        #image{
+            width: 300px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            //background-color: green;
 
-        #two{
-            width: 200px;
-            height: 200px;
-            background-color: red;
-        }
-
-        #three{
-            width: 200px;
-            height: 200px;
-            background-color: yellow;
+            img{
+                width: 100%;
+                border-radius: 50%;
+            }
         }
     }
 }

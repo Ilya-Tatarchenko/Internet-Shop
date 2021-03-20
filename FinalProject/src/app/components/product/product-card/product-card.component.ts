@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IGetProductResponse } from 'src/app/interfaces/product';
+import { IGetProductResponse, IProduct } from 'src/app/interfaces/product';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -15,6 +15,8 @@ export class ProductCardComponent implements OnInit {
 
   items: any[] = [];
   id: string;
+
+  @Input('item') item: IProduct;
   
   constructor(public productService: ProductsService, public http: HttpClient, public router: Router) {
 
@@ -29,10 +31,7 @@ export class ProductCardComponent implements OnInit {
   // }
 
   ngOnInit(): void {
-    this.productService.getProductItem()
-      .subscribe((res: IGetProductResponse) => {
-        this.items = res.products;
-      });
+    
   }
 
   goToProd(id: string): void {

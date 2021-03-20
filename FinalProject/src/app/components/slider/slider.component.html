@@ -1,22 +1,29 @@
 <div class="slider">
 
     <div class="container">
-
-        <div class="slider_content">
+        
+        <div class="slider_content" *ngIf='items'>
 
             <owl-carousel [options]="homeSlider" [carouselClasses]="['owl-theme', 'customClassName']">
-                <div class="item">
-                    <h2>APPLE AIRPODS MAX - SPACE GRAY ($699.99)</h2>
-                    <div id="one"></div>
-                </div>
-                <div class="item">
-                    <h2>CANON EOS 250D KIT 18-55 IS STM BLACK ($733.93)</h2>
-                    <div id="two"></div>
-                </div>
-                <div class="item">
-                    <h2>APPLE WATCH SERIES 6 ($699.99)</h2>
-                    <div id="three"></div>
-                </div>
+               
+                <!-- <div class="item_content"> -->
+                    <!-- <div class="item"  *ngFor='let item of items'>
+                        <h2>{{item.name}}</h2>
+                        <div id="image">
+                            <img src="https://nodejs-final-mysql.herokuapp.com{{item.image}}" alt="" *ngIf='items'>
+                        </div>
+                    </div> -->
+                <!-- </div> -->
+
+                <ng-container *ngFor='let item of items'>
+                    <ng-template class="item">
+                        <h2>{{item.name}}</h2>
+                        <div id="image">
+                            <img src="https://nodejs-final-mysql.herokuapp.com{{item.image}}" alt="" *ngIf='items'>
+                        </div>
+                    </ng-template>
+                </ng-container>
+                
             </owl-carousel>
 
         </div>

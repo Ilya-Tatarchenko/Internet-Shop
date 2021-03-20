@@ -36,13 +36,10 @@
         <div class="qty">
             <span>Qty:</span>
             <form>
-                <select>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
+                <select [(ngModel)]='countByProduct' class="main__select">
+                    <option [value]='i+1' *ngFor='let value of counts(product.countInStock); let i = index; '>{{i+1}}
+                    </option>
+                 </select>
             </form>
         </div>
         <div class="button">
@@ -50,5 +47,7 @@
         </div>
     
     </div>
+
+    <app-cart></app-cart>
 
 </div>
