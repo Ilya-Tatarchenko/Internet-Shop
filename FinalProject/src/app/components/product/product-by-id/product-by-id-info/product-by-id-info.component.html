@@ -35,12 +35,11 @@
         </div>
         <div class="qty">
             <span>Qty:</span>
-            <form>
-                <select [(ngModel)]='countByProduct' class="main__select">
-                    <option [value]='i+1' *ngFor='let value of counts(product.countInStock); let i = index; '>{{i+1}}
-                    </option>
-                 </select>
-            </form>
+            <select [(ngModel)]='selectedCount' class="main__select">
+                <option *ngFor="let value of counts" [value]="value">
+                  {{value}}
+                </option>
+            </select>
         </div>
         <div class="button">
             <button (click)='buyProduct(product)'>Add to card</button>

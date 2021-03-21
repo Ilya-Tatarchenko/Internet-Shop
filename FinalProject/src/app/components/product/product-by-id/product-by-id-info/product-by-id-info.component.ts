@@ -14,8 +14,8 @@ export class ProductByIdInfoComponent implements OnInit {
   id: string;
   product: any;
 
-  countByProduct = 0;
-  counts = Array;
+  selectedCount = 1;
+  counts: number[] = [];
 
   constructor(private activateRoute: ActivatedRoute, public http: HttpClient, public productService: ProductsService) { }
 
@@ -24,11 +24,14 @@ export class ProductByIdInfoComponent implements OnInit {
     
     this.http.get(`https://nodejs-final-mysql.herokuapp.com/products/${this.id}`).subscribe(res => {
       this.product = res;
+      for (let i = 1; i <= this.product.countInStock; i++) {
+        this.counts.push(i);
+      }
     });
   }
 
   buyProduct(product: IProduct){
-    this.productService.buy(product);
+    this.productService.buyProductAndCount({products: product, count: this.selectedCount});
   }
 
 }

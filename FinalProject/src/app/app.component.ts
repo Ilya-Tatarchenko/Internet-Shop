@@ -13,7 +13,10 @@ export class AppComponent implements OnInit {
   }
   
   ngOnInit() {
-    localStorage.setItem('products', JSON.stringify([]));
+    let products = JSON.stringify(localStorage.getItem('products'));
+    if(!products || !products.length) {
+      localStorage.setItem('products', JSON.stringify([]));
+    }
   }
 }
 

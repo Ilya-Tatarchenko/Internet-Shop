@@ -24,6 +24,8 @@ productsInCard: any[] = [];
 countByProduct: number;
 productAndCount: IGetProductAndCount[];
 
+findProductValue: string;
+
 basketSubject = new Subject<any>();
 productBasketSubject = new Subject<IProduct>();
 
@@ -53,19 +55,23 @@ buy(product: IProduct){
     this.cCount = localStorage.getItem('count');
   }
 
-  this.basketSubject.next({ product, count: this.count });
-  this.productBasketSubject.next(product);
+  this.basketSubject.next({ product, count: this.count }); 
+}
+
+buyProductAndCount(productAndCount: IGetProductAndCount){
+  if (productAndCount.products) {
+    this.count++;
+    localStorage.setItem('count', this.count.toString());
+    this.cCount = localStorage.getItem('count');
+  }
+  this.basketSubject.next({products: productAndCount.products, count: this.count});
+
+
   this.productAndCount = JSON.parse(localStorage.getItem('products'));
-  
-  // countByProduct
-  this.productAndCount.push({ products: product, count: 25 });
+  this.productAndCount.push({products: productAndCount.products, count: Number(productAndCount.count)});
   localStorage.setItem('products', JSON.stringify(this.productAndCount));
-  
 }
-
-// buyProductAndCount(product: IProduct){
-  
-// }
 
 
 }
+

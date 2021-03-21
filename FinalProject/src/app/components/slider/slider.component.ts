@@ -20,7 +20,7 @@ export class SliderComponent implements OnInit {
 
   constructor(public http: HttpClient, public router: Router, public topProductService: TopProductsService) { }
   
-  homeSlider = {items : 1, dots: true, nav: false, loop: true};
+  // homeSlider = {items : 1, dots: true, nav: false, loop: true};
   
   ngOnInit(): void {
     this.topProductService.getTopProductItem()

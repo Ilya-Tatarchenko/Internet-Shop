@@ -4,6 +4,7 @@ import { OwlModule } from 'ngx-owl-carousel'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule} from 'ngx-owl-carousel-o'
 import { CarouselCompComponent} from './components/carousel-comp/carousel-comp.component'
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -25,6 +26,7 @@ import { ProductByIdInfoComponent } from './components/product/product-by-id/pro
 import { RouterModule } from '@angular/router';
 import { from } from 'rxjs';
 import { CartItemComponent } from './components/cart/cart-item/cart-item.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { CartItemComponent } from './components/cart/cart-item/cart-item.compone
     ProductByIdComponent,
     ProductByIdInfoComponent,
     CarouselCompComponent,
-    CartItemComponent
+    CartItemComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,8 @@ import { CartItemComponent } from './components/cart/cart-item/cart-item.compone
     HttpClientModule,
     RouterModule,
     BrowserAnimationsModule,
-    CarouselModule
+    CarouselModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
