@@ -16,7 +16,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 
 export class SliderComponent implements OnInit {
 
-  items: any[] = [];
+  items: IProduct[] = [];
 
   constructor(public http: HttpClient, public router: Router, public topProductService: TopProductsService) { }
   

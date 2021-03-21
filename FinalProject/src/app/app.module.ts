@@ -24,7 +24,6 @@ import { MainComponent } from './components/main/main.component';
 import { ProductByIdComponent } from './components/product/product-by-id/product-by-id.component';
 import { ProductByIdInfoComponent } from './components/product/product-by-id/product-by-id-info/product-by-id-info.component';
 import { RouterModule } from '@angular/router';
-import { from } from 'rxjs';
 import { CartItemComponent } from './components/cart/cart-item/cart-item.component';
 import { SearchComponent } from './components/search/search.component';
 

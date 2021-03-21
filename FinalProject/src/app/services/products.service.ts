@@ -29,6 +29,8 @@ findProductValue: string;
 basketSubject = new Subject<any>();
 productBasketSubject = new Subject<IProduct>();
 
+searchProduct: string;
+
 constructor(private http: HttpClient, public localStorageService: LocalStorageService) {
 
 }
@@ -72,6 +74,9 @@ buyProductAndCount(productAndCount: IGetProductAndCount){
   localStorage.setItem('products', JSON.stringify(this.productAndCount));
 }
 
-
+searchProductFunction(searchProduct, products: IProduct){
+  this.searchProduct = searchProduct;
+  alert(searchProduct);
 }
 
+}

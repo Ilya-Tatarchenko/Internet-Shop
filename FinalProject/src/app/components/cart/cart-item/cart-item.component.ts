@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { IProduct } from 'src/app/interfaces/product';
-import { ProductsService } from 'src/app/services/products.service';
+import { Component, OnInit } from '@angular/core';
+import { IGetProductAndCount, IProduct } from 'src/app/interfaces/product';
 
 @Component({
   selector: 'app-cart-item',
@@ -9,11 +8,15 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class CartItemComponent implements OnInit {
 
-  @Input('item') item: IProduct;
+  //@Input('item') item: IProduct;
 
-  constructor(public productService: ProductsService) { }
+  products: IGetProductAndCount[] = [];
+
+  constructor() { }
 
   ngOnInit(): void {
+    this.products = JSON.parse(localStorage.getItem('products'));
+    console.log(this.products);
   }
 
 }

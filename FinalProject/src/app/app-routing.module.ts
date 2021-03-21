@@ -4,12 +4,14 @@ import { CartComponent } from './components/cart/cart.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { ProductByIdComponent } from './components/product/product-by-id/product-by-id.component';
+import { SearchComponent } from './components/search/search.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'cart', component: CartComponent },
   { path: '', component: MainComponent },
-  {path: 'products/:id', component: ProductByIdComponent},
+  { path: 'products/:id', component: ProductByIdComponent },
+  { path: 'search', component: SearchComponent }
 ];
 
 @NgModule({

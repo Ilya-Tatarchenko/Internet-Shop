@@ -9,9 +9,9 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class AppInputComponent implements OnInit {
 
-  @Input('product') product: IProduct;
+  //@Input('product') product: IProduct;
   
-  forFind: string;
+  searchProduct: string;
 
   constructor(public productsService: ProductsService) { }
 
