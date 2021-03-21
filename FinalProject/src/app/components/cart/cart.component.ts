@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { ProductsService } from 'src/app/services/products.service';
+import { IGetProductAndCount} from 'src/app/interfaces/product';
+
 
 @Component({
   selector: 'app-cart',
@@ -9,7 +11,8 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class CartComponent implements OnInit {
 
-  
+  //products:any[] = [];
+
   productsInCard: any[] = [];
 
   constructor(public productService: ProductsService, public localStorageService: LocalStorageService) { }
