@@ -1,1 +1,24 @@
-<p *ngFor='let item of products'>{{item.products.name}}</p>
+<div class="cart_item">
+
+   <table>
+      <tr>
+         <td id="image">
+            <!-- <img src="https://nodejs-final-mysql.herokuapp.com{{item.products.image}}" alt="{{item.products.name}}"> -->
+         </td>
+         <td id="name">
+            <span>{{item.products.name}}</span>
+         </td>
+         <td id="price">
+            <span>{{item.products.price}} $</span>
+         </td>
+         <td id="select">
+            <select>
+               <option>
+                 
+               </option>
+           </select>
+         </td>
+      </tr>
+   </table>
+
+</div>

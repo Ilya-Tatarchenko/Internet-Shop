@@ -31,6 +31,8 @@ productBasketSubject = new Subject<IProduct>();
 
 searchProduct: string;
 
+//products: IGetProductAndCount[] = [];
+
 constructor(private http: HttpClient, public localStorageService: LocalStorageService) {
 
 }
@@ -48,15 +50,6 @@ getProductItem(): Observable<IGetProductResponse> {
 
 //Добавление продуктов в корзину
 buy(product: IProduct){
-
-  if(product)
-  {
-    this.count++;
-    localStorage.setItem('count', this.count.toString());
-
-    this.cCount = localStorage.getItem('count');
-  }
-
   this.basketSubject.next({ product, count: this.count }); 
 }
 
@@ -66,12 +59,14 @@ buyProductAndCount(productAndCount: IGetProductAndCount){
     localStorage.setItem('count', this.count.toString());
     this.cCount = localStorage.getItem('count');
   }
-  this.basketSubject.next({products: productAndCount.products, count: this.count});
 
+  this.basketSubject.next({products: productAndCount.products, count: this.count});
 
   this.productAndCount = JSON.parse(localStorage.getItem('products'));
   this.productAndCount.push({products: productAndCount.products, count: Number(productAndCount.count)});
+
   localStorage.setItem('products', JSON.stringify(this.productAndCount));
+  //this.products = JSON.parse(localStorage.getItem('products'));
 }
 
 searchProductFunction(searchProduct, products: IProduct){

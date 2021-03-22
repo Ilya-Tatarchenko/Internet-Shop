@@ -11,7 +11,7 @@ import { IGetProductAndCount} from 'src/app/interfaces/product';
 })
 export class CartComponent implements OnInit {
 
-  //products:any[] = [];
+  products: IGetProductAndCount[] = [];
 
   productsInCard: any[] = [];
 
@@ -23,6 +23,8 @@ export class CartComponent implements OnInit {
         this.productsInCard.push('product');  
       }
     })
+
+    this.products = JSON.parse(localStorage.getItem('products'));
   }
 
 }

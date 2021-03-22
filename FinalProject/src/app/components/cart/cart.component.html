@@ -1,8 +1,10 @@
 
 <div class="container">
     
-    <div class="cart_item">
-        <app-cart-item></app-cart-item>
+    <h2>SHOPPING CART</h2>
+
+    <div class="cart_item" *ngFor='let item of products'>
+        <app-cart-item [item]='item'></app-cart-item>
     </div>
 
 </div>

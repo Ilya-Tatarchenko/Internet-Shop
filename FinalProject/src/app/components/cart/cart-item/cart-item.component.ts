@@ -1,5 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { IGetProductAndCount, IProduct} from 'src/app/interfaces/product';
+import { Component, Input, OnInit, } from '@angular/core';
+import { IGetProductAndCount } from 'src/app/interfaces/product';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { ProductsService } from 'src/app/services/products.service';
+import { CartComponent } from '../cart.component';
 
 @Component({
   selector: 'app-cart-item',
@@ -8,17 +11,12 @@ import { IGetProductAndCount, IProduct} from 'src/app/interfaces/product';
 })
 export class CartItemComponent implements OnInit {
 
-  //@Input('item') item: IProduct;
+  @Input('item') item: IGetProductAndCount;
 
-  //@Output() detectNewSkill = new EventEmitter<IProduct>();
-
-  products: IGetProductAndCount[] = [];
-
-  constructor() { }
+  constructor(public cartComponent: CartComponent, public localStorageService: LocalStorageService, public productsService: ProductsService) { }
 
   ngOnInit(): void {
-    this.products = JSON.parse(localStorage.getItem('products'));
-    //console.log(this.products);
+    
   }
 
 }
