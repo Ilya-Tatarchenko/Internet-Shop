@@ -13,10 +13,11 @@ import { LocalStorageService } from './local-storage.service';
 
 export class ProductsService {
 
+//переходы по страницам
 pageNumber: number;
 value: number;
 
-
+//счетчик товаров в корзине
 count = parseInt(localStorage.getItem('count'), 10) || 0;
 cCount: any;
 
@@ -26,10 +27,16 @@ productAndCount: IGetProductAndCount[];
 
 findProductValue: string;
 
+//subjects
 basketSubject = new Subject<any>();
 productBasketSubject = new Subject<IProduct>();
+searchSubject = new Subject<string>();
 
+//поиск продуктов
 searchProduct: string;
+
+
+
 
 //products: IGetProductAndCount[] = [];
 
@@ -46,6 +53,10 @@ goToPage(value) {
 
 getProductItem(): Observable<IGetProductResponse> {
   return this.http.get<IGetProductResponse>(`https://nodejs-final-mysql.herokuapp.com/products?keyword=&pageNumber=${this.pageNumber}`);
+}
+
+getSearchProducts(): Observable<IGetProductResponse> {
+  return this.http.get<IGetProductResponse>(`https://nodejs-final-mysql.herokuapp.com/products?keyword=${this.searchProduct}`);
 }
 
 //Добавление продуктов в корзину
@@ -70,8 +81,11 @@ buyProductAndCount(productAndCount: IGetProductAndCount){
 }
 
 searchProductFunction(searchProduct, products: IProduct){
-  this.searchProduct = searchProduct;
-  alert(searchProduct);
+  this.searchProduct = searchProduct.toLowerCase();
+  this.searchSubject.next(this.searchProduct);
+  
+  //alert(searchProduct);
+  // return this.getSearchProducts;
 }
 
 }

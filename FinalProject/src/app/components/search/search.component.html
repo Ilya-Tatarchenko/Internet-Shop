@@ -1,1 +1,9 @@
-<p>{{searchProduct}}</p>
+<div class="container">
+    <div class="product_body">
+
+        <div class="product_card" *ngFor='let item of dublicate' >
+            <app-product-card [item]='item'></app-product-card>
+        </div>
+
+    </div>
+</div>

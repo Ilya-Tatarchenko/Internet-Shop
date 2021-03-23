@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IGetProductResponse, IProduct } from 'src/app/interfaces/product';
+import { IProduct } from 'src/app/interfaces/product';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -11,8 +11,6 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductCardComponent implements OnInit {
 
-  //users: any[] = [];
-
   items: any[] = [];
   id: string;
 
@@ -21,14 +19,6 @@ export class ProductCardComponent implements OnInit {
   constructor(public productService: ProductsService, public http: HttpClient, public router: Router) {
 
   }
-
-  // ngOnInit(): void {
-  //   this.userService.getUsers()
-  //     .subscribe((res: any[]) => {
-  //       console.log(res);
-  //       this.users = res;
-  //     });
-  // }
 
   ngOnInit(): void {
     

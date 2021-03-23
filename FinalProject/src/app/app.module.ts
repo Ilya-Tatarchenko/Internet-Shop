@@ -26,6 +26,7 @@ import { ProductByIdInfoComponent } from './components/product/product-by-id/pro
 import { RouterModule } from '@angular/router';
 import { CartItemComponent } from './components/cart/cart-item/cart-item.component';
 import { SearchComponent } from './components/search/search.component';
+import { SearchItemComponent } from './components/search/search-item/search-item.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { SearchComponent } from './components/search/search.component';
     ProductByIdInfoComponent,
     CarouselCompComponent,
     CartItemComponent,
-    SearchComponent
+    SearchComponent,
+    SearchItemComponent
   ],
   imports: [
     BrowserModule,
