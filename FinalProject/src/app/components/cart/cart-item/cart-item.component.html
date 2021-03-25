@@ -14,11 +14,11 @@
             <span>{{item.products.price}} $</span>
          </td>
          <td id="select">
-            <!-- <app-select [product]='product'></app-select> -->
+            <app-select [product]='item'></app-select>
          </td>
          <td id="icon">
             <div class="icon">
-               <i class="fas fa-trash-alt"></i>
+               <i class="fas fa-trash-alt" (click)='deleteBasketItem(i)'></i>
             </div>  
          </td>
       </tr>

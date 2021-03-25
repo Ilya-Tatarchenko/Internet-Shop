@@ -89,5 +89,14 @@ searchProductFunction(searchProduct, products: IProduct){
   // return this.getSearchProducts;
 }
 
+removeFromLocalstorage(i){
+  this.productAndCount = JSON.parse(localStorage.getItem('products'));
+  this.productAndCount.splice(i, 1);
+  
+  console.log(i);
+  console.log(this.productAndCount);
+
+  localStorage.setItem('products', JSON.stringify(this.productAndCount));
+}
 
 }

@@ -24,7 +24,6 @@ export class SearchComponent implements OnInit {
       .subscribe((res: IGetProductResponse) => {
 
         this.products = res.products;
-
       });
       
     }

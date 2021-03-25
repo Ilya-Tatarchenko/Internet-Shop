@@ -12,13 +12,20 @@ import { CartComponent } from '../cart.component';
 export class CartItemComponent implements OnInit {
 
   @Input('item') item: IGetProductAndCount;
-  index: number;
+  @Input('i') i: number;
+  
+  productID: any;
 
 
   constructor(public cartComponent: CartComponent, public localStorageService: LocalStorageService, public productsService: ProductsService) { }
 
   ngOnInit(): void {
     
+  }
+
+  deleteBasketItem(i: number){
+    this.i = i;
+    this.productsService.removeFromLocalstorage(i);
   }
 
 
