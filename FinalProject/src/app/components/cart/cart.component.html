@@ -3,7 +3,7 @@
     
     <h2>SHOPPING CART</h2>
 
-    <div class="cart_item" *ngFor='let item of products'>
+    <div class="cart_item" *ngFor='let item of products, let i = index'>
         <app-cart-item [item]='item'></app-cart-item>
     </div>
 

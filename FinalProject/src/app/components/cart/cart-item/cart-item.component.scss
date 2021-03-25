@@ -3,7 +3,7 @@ table{
     border-bottom: 1px solid rgb(196, 196, 196);
 
     tr{
-        height: 70px;
+        //height: 70px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -20,6 +20,13 @@ table{
 
         td:nth-child(1){
             width: 100px;
+            .image{
+                display: flex;
+                
+                img{
+                    width: 80%;
+                }
+            }
         }
 
         td:nth-child(3){
@@ -38,5 +45,17 @@ table{
                 color: black;
             }
         }
+
+        td:nth-child(5){
+            width: 80px;
+            text-align: center;
+
+            i:hover{
+                color: red;
+                cursor: pointer;
+            }
+        }
     }
+
+    
 }

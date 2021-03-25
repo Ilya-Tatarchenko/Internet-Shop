@@ -35,6 +35,7 @@ searchSubject = new Subject<string>();
 //поиск продуктов
 searchProduct: string;
 
+index: number;
 
 
 
@@ -87,5 +88,6 @@ searchProductFunction(searchProduct, products: IProduct){
   //alert(searchProduct);
   // return this.getSearchProducts;
 }
+
 
 }

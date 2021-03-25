@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, } from '@angular/core';
-import { IGetProductAndCount } from 'src/app/interfaces/product';
+import { IGetProductAndCount, IProduct } from 'src/app/interfaces/product';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { ProductsService } from 'src/app/services/products.service';
 import { CartComponent } from '../cart.component';
@@ -12,11 +12,14 @@ import { CartComponent } from '../cart.component';
 export class CartItemComponent implements OnInit {
 
   @Input('item') item: IGetProductAndCount;
+  index: number;
+
 
   constructor(public cartComponent: CartComponent, public localStorageService: LocalStorageService, public productsService: ProductsService) { }
 
   ngOnInit(): void {
     
   }
+
 
 }

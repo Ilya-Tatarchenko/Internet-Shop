@@ -29,5 +29,9 @@ export class SliderComponent implements OnInit {
         this.items = res;
       });
   }
+
+  goToProd(id: string): void {
+    this.router.navigate([`products/${id}`]);
+  }
   
 }

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IProduct } from 'src/app/interfaces/product';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -12,16 +13,16 @@ export class AppBtnComponent implements OnInit {
   @Input('searchProductBtn') searchProduct: string;
 
   products: IProduct;
+  text: string;
 
-  constructor(public productsService: ProductsService) { }
+  constructor(public productsService: ProductsService, public router: Router) { }
 
   ngOnInit(): void {
   }
 
-  findProduct(){
-    // if(this.searchProduct === undefined) this.searchProduct = '';
-    //alert(this.searchProduct);
+  findProduct(text){
     this.productsService.searchProductFunction(this.searchProduct, this.products);
+    this.router.navigate([`search/${text}`]);
   }
 
 }

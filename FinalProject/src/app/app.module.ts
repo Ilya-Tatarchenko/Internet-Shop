@@ -27,6 +27,7 @@ import { RouterModule } from '@angular/router';
 import { CartItemComponent } from './components/cart/cart-item/cart-item.component';
 import { SearchComponent } from './components/search/search.component';
 import { SearchItemComponent } from './components/search/search-item/search-item.component';
+import { SelectComponent } from './components/select/select.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { SearchItemComponent } from './components/search/search-item/search-item
     CarouselCompComponent,
     CartItemComponent,
     SearchComponent,
-    SearchItemComponent
+    SearchItemComponent,
+    SelectComponent
   ],
   imports: [
     BrowserModule,

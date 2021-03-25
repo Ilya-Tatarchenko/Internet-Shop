@@ -25,19 +25,8 @@ export class SearchComponent implements OnInit {
 
         this.products = res.products;
 
-        this.productsService.searchSubject.subscribe(res => {
-
-          if (res !== '' || res === undefined) {
-            this.products.forEach((element, index) => {
-              if (element.name.toLowerCase().includes(res) === true) {
-                this.i = index;
-                this.dublicate.push(element);
-              }
-            })
-          }
-          
-        });
       });
+      
     }
 
 }
