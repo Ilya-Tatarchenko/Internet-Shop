@@ -30,6 +30,8 @@ export class SelectComponent implements OnInit {
   send(value: number) {
     this.product.count = +this.selectedCount;
     console.log(this.selectedCount);
+
+    this.sendSelectedCount.emit(this.product.count);
   }
 
 }

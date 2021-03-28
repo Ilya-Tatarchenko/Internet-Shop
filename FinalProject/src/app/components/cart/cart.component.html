@@ -4,14 +4,26 @@
     <h2>SHOPPING CART</h2>
 
     <div class="cart_content">
-
-        <div class="cart_item" *ngFor='let item of products, let i = index'>
-            <app-cart-item [item]='item' [i]='i'></app-cart-item>
+        
+        <div class="cart_row">
+            <div class="cart_item" *ngFor='let item of products, let i = index'>
+                <app-cart-item [item]='item' [i]='i' (newCount)='countInCart($event)'></app-cart-item>
+            </div>
         </div>
+        
     
         <div class="cart_total">
-            <h2>Total Count: {{totalCount}}</h2>
-            <h2>Total Price: {{totalPrice}} $</h2>
+            <div class="total_content">
+                <div class="title">
+                    <h2>Subtotal ({{totalCount}}) items</h2>
+                </div>
+                <div class="price">
+                    <span>{{totalPrice}} $</span>
+                </div>
+            </div>
+            <div class="total_button">
+                <button>Procced to checkout</button>
+            </div>
         </div>
 
     </div>

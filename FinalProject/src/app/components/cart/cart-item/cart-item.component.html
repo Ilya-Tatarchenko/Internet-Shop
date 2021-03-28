@@ -14,7 +14,7 @@
             <span>{{item.products.price}} $</span>
          </td>
          <td id="select">
-            <app-select [product]='item'></app-select>
+            <app-select [product]='item' (sendSelectedCount)='selectToCartItem($event)'></app-select>
          </td>
          <td id="icon">
             <div class="icon">
