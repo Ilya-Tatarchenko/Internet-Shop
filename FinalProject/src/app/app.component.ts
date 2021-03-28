@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductsService } from './services/products.service';
 
 @Component({
   selector: 'app-root',
@@ -9,14 +10,16 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'finish';
 
-  constructor() {
+  constructor(public productsService: ProductsService) {
   }
   
   ngOnInit() {
-    let products = JSON.stringify(localStorage.getItem('products'));
+    let products = JSON.parse(localStorage.getItem('products'));
     if(!products || !products.length) {
       localStorage.setItem('products', JSON.stringify([]));
     }
+
+    this.productsService.basketSubject.next(products);
   }
 }
 
