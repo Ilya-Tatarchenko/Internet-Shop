@@ -11,8 +11,11 @@ import { CartComponent } from '../cart.component';
 })
 export class CartItemComponent implements OnInit {
 
-  //@Input('item') item: IGetProductAndCount;
+  @Input('item') item: IGetProductAndCount;
   @Input('i') i: number;
+
+  @Input('totalCount') totalCount: number;
+  @Input('totalPrice') totalPrice: number;
 
   @Output() newCount = new EventEmitter<number>();
   
@@ -22,9 +25,9 @@ export class CartItemComponent implements OnInit {
   products: IGetProductAndCount[] = [];
   res: any;
 
-  //@Input('products') products: IGetProductAndCount;
-
   constructor(public cartComponent: CartComponent, public localStorageService: LocalStorageService, public productsService: ProductsService) { }
+
+
 
   ngOnInit(): void {
     this.products = JSON.parse(localStorage.getItem('products'));
@@ -36,11 +39,11 @@ export class CartItemComponent implements OnInit {
     this.products = JSON.parse(localStorage.getItem('products'));
   }
 
-
   selectToCartItem(value: number) {
+    console.log(value, this.products);
+    this.productsService.editCardItem(this.item.products._id, this.products);
     this.newSelectCount = value;
     this.newCount.emit(this.newSelectCount);
-    // alert(`Success ${this.newCount}`);
   }
 
 }

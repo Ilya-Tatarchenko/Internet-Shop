@@ -6,6 +6,8 @@ import { TopProductsService } from 'src/app/services/top-products.service';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
+declare var $: any;
+
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
@@ -18,6 +20,7 @@ export class SliderComponent implements OnInit {
 
   items: IProduct[] = [];
 
+
   constructor(public http: HttpClient, public router: Router, public topProductService: TopProductsService) { }
   
   // homeSlider = {items : 1, dots: true, nav: false, loop: true};
@@ -28,10 +31,16 @@ export class SliderComponent implements OnInit {
         console.log(res);
         this.items = res;
       });
+
+      $('.carousel').carousel({
+        interval: 5000
+      })
   }
 
   goToProd(id: string): void {
     this.router.navigate([`products/${id}`]);
   }
+
+  
   
 }

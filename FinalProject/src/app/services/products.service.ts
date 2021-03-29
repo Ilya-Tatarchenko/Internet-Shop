@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { IProduct, IGetProductResponse, IGetProductAndCount } from '../interfaces/product';
 import { LocalStorageService } from './local-storage.service';
+import { Router } from '@angular/router';
 
 
 
@@ -41,7 +42,7 @@ i: number;
 
 //products: IGetProductAndCount[] = [];
 
-constructor(private http: HttpClient, public localStorageService: LocalStorageService) {
+constructor(private http: HttpClient, public localStorageService: LocalStorageService, public router: Router) {
 
 }
 
@@ -112,11 +113,29 @@ buyProductAndCount(productAndCount: IGetProductAndCount): void{
 
 
 
-
 //Поиск продуктов
 searchProductFunction(searchProduct, products: IProduct){
   this.searchProduct = searchProduct.toLowerCase();
   this.searchSubject.next(this.searchProduct);
+}
+
+
+
+
+
+
+//Обновление количество товара в корзине
+updateCardTotalInfo() {
+  const products = JSON.parse(localStorage.getItem('products'));
+  if (products) {
+    let totalCount = 0;
+    let totalPrice = 0;
+    products.forEach((product) => {
+      totalCount += +product.count;
+      totalPrice += +product.products.price * product.count;
+    });
+    return { totalCount, totalPrice };
+  }
 }
 
 
@@ -137,6 +156,20 @@ removeFromLocalstorage(i: number){
   this.count -= index;
   localStorage.setItem('count', this.count.toString());
   this.cCount = +localStorage.getItem('count');
+}
+
+
+
+
+
+
+editCardItem(id, product) {
+  let products = JSON.parse(localStorage.getItem('products'));
+  console.log(id, product);
+  console.log(products);
+  let prodToChangeIndex = products.findIndex(prod => prod.products._id === id);
+  products[prodToChangeIndex].count = product.count;
+  localStorage.setItem('products', JSON.stringify(products));
 }
 
 

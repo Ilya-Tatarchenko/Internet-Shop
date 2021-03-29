@@ -20,36 +20,24 @@ export class CartComponent implements OnInit {
 
   a: number;
   cart: any;
-
+  val: number;
+  itemCount: number;
+  
   constructor(public productService: ProductsService, public localStorageService: LocalStorageService) { }
 
   ngOnInit(): void {
-    this.productService.basketSubject.subscribe(cart => {
-      this.cart = cart;
-      if (cart?.length > 0) {
-        cart.forEach(item => {
-          console.log(item)
-          this.totalPrice += item.products.price * item.count;
-          this.totalCount += item.count;
-        });
-        this.totalPrice = +this.totalPrice.toFixed(2);
-      }
-    })
+    this.products = JSON.parse(localStorage.getItem('products'));
+    const { totalCount, totalPrice } = this.productService.updateCardTotalInfo();
+    this.totalCount = Number(totalCount);
+    this.totalPrice = Number(totalPrice);
+    this.totalPrice.toFixed(2);
   }
 
 
   countInCart(value: number){
-    this.a = +value;
-
-    console.log(this.a);
-
-    this.cart.forEach(item => {
-      console.log(item);
-      this.totalPrice += +this.a * item.count;
-      this.totalCount += this.a;
-      this.totalPrice = +this.totalPrice.toFixed(2);
-      this.products = JSON.parse(localStorage.getItem('products'));
-    })
+    const { totalCount, totalPrice } = this.productService.updateCardTotalInfo();
+    this.totalCount = +totalCount;
+    this.totalPrice = +totalPrice;
   }
 
 }

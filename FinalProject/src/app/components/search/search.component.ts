@@ -19,13 +19,13 @@ export class SearchComponent implements OnInit {
   constructor(public productsService: ProductsService, public router: Router) { }
 
   ngOnInit(): void {
+   
     this.productsService.getSearchProducts()
-
       .subscribe((res: IGetProductResponse) => {
 
-        this.products = res.products;
-      });
-      
-    }
+      this.products = res.products;
+    }); 
+    
+  }
 
 }
