@@ -6,12 +6,12 @@
     <div class="cart_content">
         
         <div class="cart_row">
-            <div class="cart_item" *ngFor='let item of products, let i = index'>
-                <app-cart-item [item]='item' [i]='i' (newCount)='countInCart($event)'></app-cart-item>
+            <div class="cart_item">
+                <app-cart-item  (newCount)='countInCart($event)'></app-cart-item>
             </div>
         </div>
         
-    
+        
         <div class="cart_total">
             <div class="total_content">
                 <div class="title">

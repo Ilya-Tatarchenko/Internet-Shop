@@ -8,12 +8,12 @@
         flex-direction: row;
         justify-content: space-between;
         width: 75%;
+        border: none;
 
         .image{
             width: 60%;
             min-height: 400px;
             max-height: 400px;
-            //background-color: rgb(67, 53, 83);
 
             img{
                 width: 100%;
@@ -29,9 +29,44 @@
                 padding: 10px 0px 10px 0px;
             }
 
+            .review{
+
+                .star {
+                    color: rgb(255, 178, 13);
+                    font-size: 22px;
+                    margin-right: 15px;
+                    content : '★☆☆☆☆';
+                }
+                        
+                .star0:before{
+                    content : '☆☆☆☆☆';
+                }
+                        
+                .star1:before {
+                    content : '★☆☆☆☆';
+                }
+                        
+                .star2:before {
+                    content : '★★☆☆☆';
+                }
+                        
+                .star3:before {
+                    content : '★★★☆☆';
+                }
+                        
+                .star4:before {
+                    content : '★★★★☆';
+                }
+                        
+                .star5:before {
+                    content : '★★★★★';
+                }
+            }
+
             .description{
                 border: none;
             }
+            
         }
     }
 

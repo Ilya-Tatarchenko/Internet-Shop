@@ -1,6 +1,7 @@
 <div class="main_content" *ngIf='product'>
 
     <div class="description">
+
         <div class="image">
             <img src="https://nodejs-final-mysql.herokuapp.com{{product.products.image}}" alt="">
         </div>
@@ -11,7 +12,8 @@
                 <h3>{{product.products.name}}</h3>
             </div>
             <div class="review">
-                <span>{{product.products.numReviews}}</span>
+                <span class="star star4"></span>
+                <span>{{product.products.numReviews}} reviews</span>
             </div>
             <div class="price">
                 <span>{{product.products.price}} $</span>
@@ -21,6 +23,7 @@
             </div>
 
         </div>
+
     </div>
 
     <div class="card">
