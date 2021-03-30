@@ -1,5 +1,6 @@
 //import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { IProduct } from 'src/app/interfaces/product';
 //import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductByIdComponent implements OnInit {
 
+  product = {} as IProduct;
 
   constructor() { }
 

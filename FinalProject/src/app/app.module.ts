@@ -28,6 +28,7 @@ import { CartItemComponent } from './components/cart/cart-item/cart-item.compone
 import { SearchComponent } from './components/search/search.component';
 import { SearchItemComponent } from './components/search/search-item/search-item.component';
 import { SelectComponent } from './components/select/select.component';
+import { ProductByIdReviewComponent } from './components/product/product-by-id/product-by-id-review/product-by-id-review.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { SelectComponent } from './components/select/select.component';
     CartItemComponent,
     SearchComponent,
     SearchItemComponent,
-    SelectComponent
+    SelectComponent,
+    ProductByIdReviewComponent
   ],
   imports: [
     BrowserModule,

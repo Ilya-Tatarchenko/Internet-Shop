@@ -5,7 +5,6 @@ export interface IProduct {
     price: number,
     countInStock: number,
     name: string,
-    // "image": "/images/hp_zbook.jpg",
     description: string,
     brand: string,
     category: string,
@@ -25,13 +24,13 @@ export interface IGetProductAndCount {
     products: IProduct;
 }
  
-export interface IProductReviews {
-    _id: string,
-    name: string,
-    rating: number,
-    comment: string,
-    user: string,
-    createdAt: string,
-    updatedAt: string,
-    product_id: string
- }
+// export interface IProductReviews {
+//     _id: string,
+//     name: string,
+//     rating: number,
+//     comment: string,
+//     user: string,
+//     createdAt: string,
+//     updatedAt: string,
+//     product_id: string
+//  }
